@@ -32,6 +32,14 @@ IMPORTING sorting, ints@mod_lems
    ENDIF
    MEASURE n
 
+% meu lema.
+  n_digits_10n : LEMMA
+  FORALL(n : nat) : n_digits(10^n) = n + 1
+
+% meu lem 2.
+ n_digits_gt_ab : LEMMA
+  FORALL(a, b : nat) : n_digits(a) > n_digits(b) IMPLIES a > b
+
 
 %************************************************************
 %*** QUESTION 01
@@ -47,7 +55,9 @@ IMPORTING sorting, ints@mod_lems
   d_digits_gt : CONJECTURE
    FORALL(n : nat): 10^(n_digits(n)) > n
 
+
 % Three simple properties of remainder and exponential
+
 
  rem_div_div :  LEMMA
    FORALL(n : nat, a, b : posnat) :  ndiv(n, a * b) = ndiv(ndiv(n,a),b) 
@@ -206,6 +216,5 @@ MEASURE length(l)
   Radixsort_sorts : LEMMA
   FORALL(l : list[nat]):
    is_sorted?(radixsort(l))
-
   
   END radix_sort

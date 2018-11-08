@@ -71,54 +71,34 @@
    nil))
  (d_digits_gt 0
   (d_digits_gt-1 nil 3748097090
-   ("" (measure-induct+ "n" ("n")) (("" (postpone) nil nil)) nil)
-   ((even_times_int_is_even application-judgement "even_int" integers
-     nil)
-    (mult_divides1 application-judgement "(divides(n))" divides nil)
-    (mult_divides2 application-judgement "(divides(m))" divides nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
+   ("" (skeep)
+    (("" (lemma "n_digits_gt_ab")
+      (("" (inst?)
+        (("" (split)
+          (("1" (propax) nil nil)
+           ("2" (lemma "n_digits_10n")
+            (("2" (inst?)
+              (("2" (replace -1 1)
+                (("2" (hide -1 2) (("2" (assert) nil nil)) nil)) nil))
+              nil))
+            nil))
+          nil))
+        nil))
+      nil))
+    nil)
+   ((n_digits_gt_ab formula-decl nil radix_sort nil)
     (real_gt_is_strict_total_order name-judgement
      "(strict_total_order?[real])" real_props nil)
-    (posint_exp application-judgement "posint" exponentiation nil)
-    (posnat_expt application-judgement "posnat" exponentiation nil)
-    (posrat_div_posrat_is_posrat application-judgement "posrat"
-     rationals nil)
-    (real_ge_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (posint_times_posint_is_posint application-judgement "posint"
-     integers nil)
-    (expt def-decl "real" exponentiation nil)
     (posint_plus_nnint_is_posint application-judgement "posint"
      integers nil)
-    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
-     integers nil)
-    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
-     integers nil)
-    (<= const-decl "bool" reals nil)
-    (NOT const-decl "[bool -> bool]" booleans nil)
-    (real_le_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (= const-decl "[T, T -> boolean]" equalities nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (mod nonempty-type-eq-decl nil euclidean_division nil)
-    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (rem const-decl "{r: mod(b) | EXISTS q: x = b * q + r}"
-         modulo_arithmetic nil)
-    (ndiv const-decl "{q: int | x = b * q + rem(b)(x)}"
-     modulo_arithmetic nil)
-    (nil application-judgement "upto(n)" modulo_arithmetic nil)
+    (n_digits_10n formula-decl nil radix_sort nil)
     (n_digits def-decl "posnat" radix_sort nil)
     (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
     (nonneg_int nonempty-type-eq-decl nil integers nil)
     (^ const-decl "real" exponentiation nil)
     (/= const-decl "boolean" notequal nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
-    (> const-decl "bool" reals nil)
-    (wf_nat formula-decl nil naturalnumbers nil)
-    (< const-decl "bool" reals nil)
-    (naturalnumber type-eq-decl nil naturalnumbers nil)
     (nat nonempty-type-eq-decl nil naturalnumbers nil)
     (>= const-decl "bool" reals nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -133,9 +113,7 @@
      nil)
     (boolean nonempty-type-decl nil booleans nil)
     (number nonempty-type-decl nil numbers nil)
-    (measure_induction formula-decl nil measure_induction nil)
-    (well_founded? const-decl "bool" orders nil)
-    (pred type-eq-decl nil defined_types nil))
+    (posint_exp application-judgement "posint" exponentiation nil))
    nil))
  (rem_div_div 0
   (rem_div_div-1 nil 3748280946
